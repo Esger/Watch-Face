@@ -3,6 +3,7 @@
     "type": "project:application",
     "paths": {
         "root": "src",
+        "assets": "assets",
         "resources": "resources",
         "elements": "resources/elements",
         "attributes": "resources/attributes",
