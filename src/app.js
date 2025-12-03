@@ -12,6 +12,15 @@ export class App {
         setTimeout(_ => this._eventAggregator.publish('dark-mode-changed', { mode: this.isDark, prefersDark: this.prefersDark }), 100);
     }
 
+    attached() {
+        this.time = new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        this._timeSubcription = this._eventAggregator.subscribe('tile-changed', _ => this.time = new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }));
+    }
+
+    detached() {
+        this._timeSubcription.dispose();
+    }
+
     setDarkMode(mode) {
         this.isDark = mode;
         $('html').removeClass('auto dark light').addClass(mode);
