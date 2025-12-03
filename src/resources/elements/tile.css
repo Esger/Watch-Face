@@ -8,6 +8,7 @@ board {
 tile {
     --size: 31dvw;
     --top: 0;
+    position: relative;
     --pupilOffsetX: 0%;
     --pupilOffsetY: 0%;
     --pupilOffsetXRight: 0%;
