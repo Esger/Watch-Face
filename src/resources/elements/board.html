@@ -1,0 +1,15 @@
+<template style="--width: ${WIDTH};
+                --height: ${HEIGHT};">
+    <require from="elements/tile"></require>
+    <require from="./board.css"></require>
+
+    <tile repeat.for="tile of deck"
+          class="au-animate animate-fadeIn animate-fadeOut"
+          tile-obj.bind="tile"></tile>
+
+    <span portal.bind="'#score'">
+        <span>${score || ''}</span>
+    <span if.bind="testing" click.delegate="highLightTiles()"># ${allCorrectCombinations.length || '0'}</span>
+    </span>
+
+</template>
