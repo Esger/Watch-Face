@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     height: 100dvh;
     margin: 0;
     font-family: "Kranky", serif;
@@ -68,12 +69,26 @@ header {
     button svg {
         width: 3vw;
     }
+
+    h1 {
+        color: var(--color);
+        font-size: 10vmin;
+        font-weight: normal;
+    }
 }
 
-h1 {
-    color: var(--color);
-    font-size: 10vmin;
-    font-weight: bold;
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1rem;
+
+    h2 {
+        color: var(--color);
+        font-size: 20vmin;
+        font-weight: normal;
+    }
 }
 
 button {

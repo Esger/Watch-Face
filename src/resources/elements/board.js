@@ -48,6 +48,7 @@ export class Board {
         } while (newValue === currentValue);
 
         tile[feature] = newValue;
+        this._eventAggregator.publish('tile-changed');
     }
 
     _newTiles() {
