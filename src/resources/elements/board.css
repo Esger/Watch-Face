@@ -2,7 +2,6 @@ board {
     display: flex;
     align-items: flex-start;
     position: relative;
-    --gap: 3dvh;
     user-select: none;
 
     footer {

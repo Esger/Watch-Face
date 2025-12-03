@@ -19,7 +19,7 @@ export class Board {
         document.body.addEventListener('mousemove', this._adjustPupils);
         this._clockFaceInterval = setInterval(() => {
             this._randomFeatureChange();
-        }, 1000);
+        }, 2000);
     }
 
     detached() {
