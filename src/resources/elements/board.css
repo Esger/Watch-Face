@@ -3,6 +3,7 @@ board {
     align-items: flex-start;
     position: relative;
     user-select: none;
+    width: 100%;
 
     footer {
         width: 100%;
