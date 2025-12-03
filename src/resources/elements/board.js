@@ -4,7 +4,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 @inject(EventAggregator)
 export class Board {
     @bindable value;
-    WIDTH = 4;
+    WIDTH = 3;
     HEIGHT = 1;
 
     constructor(eventAggregator) {
@@ -57,7 +57,7 @@ export class Board {
             { id: 0, chin: 'left', hair: 'left', nose: 'left', mouth: 'left', x: 0, y: 0 },
             { id: 1, chin: 'center', hair: 'center', nose: 'center', mouth: 'center', x: 1, y: 0 },
             { id: 2, chin: 'right', hair: 'right', nose: 'right', mouth: 'right', x: 2, y: 0 },
-            { id: 3, chin: 'left', hair: 'center', nose: 'right', mouth: 'left', x: 3, y: 0 },
+            // { id: 3, chin: 'left', hair: 'center', nose: 'right', mouth: 'left', x: 3, y: 0 },
         ];
     }
 
