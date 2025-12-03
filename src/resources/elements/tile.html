@@ -7,21 +7,7 @@
                 --mouth: ${tileObj.mouth};
                 --x: ${tileObj.x};
                 --y: ${tileObj.y};"
-          class="${tileObj.marked ? 'marked' : ''} 
-                ${tileObj.onBoard || tileObj.toDeck || tileObj.drawn ? 'face' : 'back'}
-                ${tileObj.onBoard ? 'onBoard' : 'deck'} 
-                ${tileObj.drawn ? 'drawn' : ''}
-                ${tileObj.deny ? 'deny' : ''}"
-          click.delegate="clicked()">
+          class="face onBoard">
     <require from="./tile.css"></require>
-
-    <h2 class="${tileObj.onBoard || tileObj.toDeck || tileObj.drawn ? 'hide' : ''}">*</h2>
-
-    <div class="hoverAreas">
-        <div class="hair"></div>
-        <div class="nose"></div>
-        <div class="mouth"></div>
-        <div class="chin"></div>
-    </div>
 
 </template>

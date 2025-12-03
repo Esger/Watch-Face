@@ -3,81 +3,46 @@
 }
 
 board {
-    --chinImage          : url('assets/kinnen.webp');
-    --hairImage          : url('assets/haren.webp');
-    --noseImage          : url('assets/neuzen.webp');
-    --mouthImage         : url('assets/monden.webp');
-    --chinImageHighlight : url('assets/kinnen-groen.webp');
-    --hairImageHighlight : url('assets/haren-groen.webp');
-    --noseImageHighlight : url('assets/neuzen-groen.webp');
-    --mouthImageHighlight: url('assets/monden-groen.webp');
-
-    @media (hover: hover) {
-
-        &:has(.face[style*='--hair: left'] .hair:hover) .face[style*='--hair: left'],
-        &:has(.face[style*='--hair: center'] .hair:hover) .face[style*='--hair: center'],
-        &:has(.face[style*='--hair: right'] .hair:hover) .face[style*='--hair: right'] {
-            --hairImage: var(--hairImageHighlight);
-        }
-
-        &:has(.face[style*='--nose: left'] .nose:hover) .face[style*='--nose: left'],
-        &:has(.face[style*='--nose: center'] .nose:hover) .face[style*='--nose: center'],
-        &:has(.face[style*='--nose: right'] .nose:hover) .face[style*='--nose: right'] {
-            --noseImage: var(--noseImageHighlight);
-        }
-
-        &:has(.face[style*='--mouth: left'] .mouth:hover) .face[style*='--mouth: left'],
-        &:has(.face[style*='--mouth: center'] .mouth:hover) .face[style*='--mouth: center'],
-        &:has(.face[style*='--mouth: right'] .mouth:hover) .face[style*='--mouth: right'] {
-            --mouthImage: var(--mouthImageHighlight);
-        }
-
-        &:has(.face[style*='--chin: left'] .chin:hover) .face[style*='--chin: left'],
-        &:has(.face[style*='--chin: center'] .chin:hover) .face[style*='--chin: center'],
-        &:has(.face[style*='--chin: right'] .chin:hover) .face[style*='--chin: right'] {
-            --chinImage: var(--chinImageHighlight);
-        }
-    }
+    --chinImage: url('assets/kinnen.webp');
+    --hairImage: url('assets/haren.webp');
+    --noseImage: url('assets/neuzen.webp');
+    --mouthImage: url('assets/monden.webp');
 }
 
 tile {
-    --size             : calc(((85vmin - ((var(--width) - 1) * var(--gap)))) / var(--width));
-    --top              : 0;
-    --pupilOffsetX     : 0%;
-    --pupilOffsetY     : 0%;
+    --size: 20dvw;
+    --top: 0;
+    --pupilOffsetX: 0%;
+    --pupilOffsetY: 0%;
     --pupilOffsetXRight: 0%;
-    --pupilX           : 38.6%;
-    --pupilY           : 38.3%;
-    --shadow           : none;
-    position           : absolute;
-    width              : var(--size);
-    left               : 0;
-    top                : var(--top);
-    display            : flex;
-    justify-content    : center;
-    align-items        : center;
-    background-color   : transparent;
-    color              : var(--color);
-    text-transform     : var(--textTransform);
-    border-radius      : var(--borderRadius, 2dvh);
-    border             : solid;
-    border-width       : var(--borderWidth, 0);
-    aspect-ratio       : 1;
-    box-shadow         : var(--shadow);
-    transition         : transform 1s ease-in-out;
-    opacity            : var(--tileOpacity, 1);
+    --pupilX: 38.6%;
+    --pupilY: 38.3%;
+    --shadow: none;
+    flex: 0 0 var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: var(--color);
+    text-transform: var(--textTransform);
+    border-radius: var(--borderRadius, 2dvh);
+    border: solid;
+    border-width: var(--borderWidth, 0);
+    aspect-ratio: 1;
+    box-shadow: var(--shadow);
+    opacity: var(--tileOpacity, 1);
 
     &::before,
     &.face::after {
-        content         : '';
-        position        : absolute;
-        width           : 2%;
-        aspect-ratio    : 1;
-        top             : calc(var(--pupilY) + var(--pupilOffsetY));
-        left            : calc(var(--pupilX) + var(--pupilOffsetX));
-        border-radius   : 1in;
+        content: '';
+        position: absolute;
+        width: 2%;
+        aspect-ratio: 1;
+        top: calc(var(--pupilY) + var(--pupilOffsetY));
+        left: calc(var(--pupilX) + var(--pupilOffsetX));
+        border-radius: 1in;
         background-color: #fff;
-        z-index         : 1;
+        z-index: 1;
 
         @media screen and (max-width: 600px) {
             width: 2px;
@@ -85,148 +50,27 @@ tile {
     }
 
     &.face::after {
-        --pupilX      : calc(59.6% + var(--pupilOffsetXRight));
-        height        : auto;
+        --pupilX: calc(59.6% + var(--pupilOffsetXRight));
+        height: auto;
         mix-blend-mode: revert;
     }
 
     &::after {
-        content       : '';
-        position      : absolute;
-        width         : 100%;
-        height        : 100%;
-        top           : 0;
-        left          : 0;
-        border-radius : var(--borderRadius, 2dvh);
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: var(--borderRadius, 2dvh);
         mix-blend-mode: multiply;
     }
 
     &.face {
-        background-image     : var(--chinImage), var(--noseImage), var(--hairImage), var(--mouthImage);
-        background-position  : var(--chin) center, var(--nose) center, var(--hair) center, var(--mouth) center;
-        background-size      : cover, cover, cover, cover;
+        background-image: var(--chinImage), var(--noseImage), var(--hairImage), var(--mouthImage);
+        background-position: var(--chin) center, var(--nose) center, var(--hair) center, var(--mouth) center;
+        background-size: cover, cover, cover, cover;
         background-blend-mode: multiply;
     }
 
-    &.onBoard {
-        transform: translate(calc(var(--x, 0) * (var(--size) + var(--gap))),
-                calc((var(--y, 0) + 1) * (var(--size) + var(--gap))));
-
-        @media only screen and (orientation: landscape) {
-            transform: translate(calc((var(--x, 0) + 1) * (var(--size) + var(--gap))),
-                    calc(var(--y, 0) * (var(--size) + var(--gap))));
-        }
-
-    }
-
-    &.deck {
-        transform: translate(0, 0);
-
-        &:not(.drawn) {
-            filter: contrast(100);
-
-            h2 {
-                filter: blur(.6vmin);
-            }
-
-            &::after {
-                background-image   : linear-gradient(90deg, #fff 0%, #7d7d7d 50%, #fff 100%);
-                background-size    : 5% 100%;
-                background-repeat  : repeat-x;
-                background-position: center;
-
-                .dark & {
-                    background-image: none;
-                }
-
-                @media (prefers-color-scheme: dark) {
-                    .auto & {
-                        background-image: none;
-                    }
-                }
-            }
-        }
-    }
-
-    @media (hover: hover) {
-        cursor: pointer;
-
-        &:hover {
-            --shadow: 0 0 1vmin #000000a8;
-        }
-    }
-
-    &.marked {
-        --shadow: 0 0 2vmin #000000a8;
-        z-index : 1;
-    }
-
-    &.drawn {
-        transform: translate(calc(var(--size) + var(--gap)), 0);
-
-        @media only screen and (orientation: landscape) {
-            transform: translate(0, calc(var(--size) + var(--gap)));
-        }
-    }
-
-    &.deny {
-        --shadow: 0 0 2vmin #dc143ca8;
-    }
-
-    &.hidden {
-        opacity: 0;
-    }
-
-    .hoverAreas {
-        position      : absolute;
-        width         : 100%;
-        height        : 100%;
-        top           : 0;
-        left          : 0;
-        display       : flex;
-        flex-direction: column;
-        align-items   : center;
-        z-index       : 10;
-
-        >div {
-            width     : 75%;
-            /* outline: 1px dotted green; */
-
-            &.hair {
-                flex: 0 0 25%;
-            }
-
-            &.nose {
-                flex: 0 0 45%;
-            }
-
-            &.mouth {
-                flex: 0 0 15%;
-            }
-
-            &.chin {
-                flex: 0 0 15%;
-            }
-        }
-    }
-
-    h2 {
-        color         : inherit;
-        text-align    : center;
-        text-transform: inherit;
-        line-height   : 0;
-        font-size     : 30vmin;
-        translate     : 0 1.5rem;
-    }
-}
-
-@media only screen and (orientation: landscape) {
-
-    tile {
-        --size: calc(((85vmin - ((var(--height) - 1) * var(--gap)))) / var(--height));
-
-        h2 {
-            translate: 0 3.5rem;
-        }
-    }
 }
