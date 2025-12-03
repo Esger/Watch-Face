@@ -1,6 +1,7 @@
 board {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     position: relative;
     user-select: none;
     width: 100%;
