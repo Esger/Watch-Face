@@ -18,25 +18,25 @@ html.auto {
 *::before,
 :root {
     --backgroundColor-light: white;
-    --backgroundColor-dark : black;
+    --backgroundColor-dark: black;
     --foregroundColor-light: black;
-    --foregroundColor-dark : white;
-    --color-light          : darkslategray;
-    --color-dark           : lightgray;
-    --foregroundColor      : var(--foregroundColor-light);
-    --backgroundColor      : var(--backgroundColor-light);
-    --color                : var(--color-light);
-    --tileBackground       : linear-gradient(90deg, var(--backgroundColor) 0%, #7d7d7d 50%, var(--backgroundColor) 100%);
+    --foregroundColor-dark: white;
+    --color-light: darkslategray;
+    --color-dark: lightgray;
+    --foregroundColor: var(--foregroundColor-light);
+    --backgroundColor: var(--backgroundColor-light);
+    --color: var(--color-light);
+    --tileBackground: linear-gradient(90deg, var(--backgroundColor) 0%, #7d7d7d 50%, var(--backgroundColor) 100%);
 
     --tileOpacity-Light: 1;
-    --tileOpacity-Dark : .71;
-    --tileOpacity      : var(--tileOpacity-Light);
+    --tileOpacity-Dark: .71;
+    --tileOpacity: var(--tileOpacity-Light);
 
     @supports (color: light-dark(white, black)) {
         --foregroundColor: light-dark(var(--foregroundColor-light), var(--foregroundColor-dark));
         --backgroundColor: light-dark(var(--backgroundColor-light), var(--backgroundColor-dark));
-        --color          : light-dark(var(--color-light), var(--color-dark));
-        --tileOpacity    : light-dark(var(--tileOpacity-Light), var(--tileOpacity-Dark));
+        --color: light-dark(var(--color-light), var(--color-dark));
+        --tileOpacity: light-dark(var(--tileOpacity-Light), var(--tileOpacity-Dark));
     }
 }
 
@@ -44,76 +44,55 @@ html.auto {
 html,
 body {
     background-color: var(--backgroundColor);
-    height          : 100dvh;
-    overflow        : hidden;
+    height: 100dvh;
+    overflow: hidden;
 }
 
 body {
-    display        : flex;
-    flex-direction : column;
-    justify-content: flex-end;
-    align-items    : center;
-    margin         : 0;
-    font-family    : "Kranky", serif;
-    font-weight    : 400;
-    font-style     : normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100dvh;
+    margin: 0;
+    font-family: "Kranky", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 header {
-    position       : absolute;
-    right          : 7vw;
-    top            : 0;
-    display        : flex;
+    display: flex;
     justify-content: flex-end;
-    align-items    : center;
-    margin-block   : 1rem;
-    width          : 95vw;
+    align-items: center;
+    margin-block: 1rem;
 
     button svg {
         width: 3vw;
     }
 }
 
-@media only screen and (orientation: landscape) {
-    body {
-        justify-content: center;
-    }
-
-    header {
-        left            : 7vw;
-        right           : auto;
-        width           : 95vh;
-        margin-block    : .5rem -1rem;
-        rotate          : -90deg;
-        translate       : 0 85vh;
-        transform-origin: left;
-        justify-content : flex-start;
-    }
-}
-
 h1 {
-    color      : var(--color);
-    font-size  : 10vmin;
+    color: var(--color);
+    font-size: 10vmin;
     font-weight: bold;
 }
 
 button {
     background-color: var(--backgroundColor);
-    border          : none;
-    color           : var(--foregroundColor);
-    padding         : 1rem;
-    border-radius   : .5rem;
-    cursor          : pointer;
+    border: none;
+    color: var(--foregroundColor);
+    padding: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
 
     &.light-dark-toggle {
         position: fixed;
-        z-index : 1;
-        left    : 0;
-        top     : 0;
-        padding : 1rem;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        padding: 1rem;
 
         @media screen and (max-width: 600px) {
-            top   : auto;
+            top: auto;
             bottom: 0;
         }
 
@@ -124,6 +103,6 @@ button {
 }
 
 .hide {
-    opacity       : 0;
+    opacity: 0;
     pointer-events: none;
 }

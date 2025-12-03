@@ -3,7 +3,6 @@ board {
     align-items: flex-start;
     position: relative;
     --gap: 3dvh;
-    width: 85vmin;
     user-select: none;
 
     footer {
@@ -11,13 +10,6 @@ board {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-}
-
-@media screen and (orientation: landscape) {
-    board {
-        width: 85vmin;
-        height: 85vmin;
     }
 }
 

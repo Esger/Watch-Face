@@ -17,6 +17,9 @@ export class Board {
 
     attached() {
         document.body.addEventListener('mousemove', this._adjustPupils);
+        this._clockFaceInterval = setInterval(() => {
+            this._randomFeatureChange();
+        }, 1000);
     }
 
     detached() {
@@ -31,17 +34,20 @@ export class Board {
         }, 100);
     }
 
-    _getRandomIndex() {
-        let tile, index, found = false;
-        while (!found) {
-            index = Math.floor(Math.random() * this.deck.length);
-            tile = this.deck[index];
-            if (!(tile.onBoard || tile.marked || tile.toBoard || tile.toDeck || tile.chosen || tile.drawn)) {
-                found === true;
-                tile.chosen = true;
-                return index;
-            };
-        }
+    _randomFeatureChange() {
+        const features = ['chin', 'hair', 'nose', 'mouth'];
+        const values = ['left', 'center', 'right'];
+
+        const tile = this.deck[Math.floor(Math.random() * this.deck.length)];
+        const feature = features[Math.floor(Math.random() * features.length)];
+        const currentValue = tile[feature];
+
+        let newValue;
+        do {
+            newValue = values[Math.floor(Math.random() * values.length)];
+        } while (newValue === currentValue);
+
+        tile[feature] = newValue;
     }
 
     _newTiles() {
