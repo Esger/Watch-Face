@@ -17,6 +17,7 @@ export class Board {
 
     attached() {
         document.body.addEventListener('mousemove', this._adjustPupils);
+        document.body.addEventListener('touchmove', this._adjustPupils);
         this._clockFaceInterval = setInterval(() => {
             this._randomFeatureChange();
         }, 2000);
@@ -24,12 +25,22 @@ export class Board {
 
     detached() {
         document.body.removeEventListener('mousemove', this._adjustPupils);
+        document.body.removeEventListener('touchmove', this._adjustPupils);
+        clearInterval(this._clockFaceInterval);
     }
 
     _adjustPupils = (event) => {
         if (this.positionThrottle) return;
         this.positionThrottle = setTimeout(() => {
-            this._eventAggregator.publish('mouse-position', { x: event.x, y: event.y });
+            let x, y;
+            if (event.touches && event.touches.length > 0) {
+                x = event.touches[0].clientX;
+                y = event.touches[0].clientY;
+            } else {
+                x = event.clientX;
+                y = event.clientY;
+            }
+            this._eventAggregator.publish('pointer-position', { x, y });
             this.positionThrottle = null;
         }, 100);
     }
