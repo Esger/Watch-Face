@@ -23,8 +23,8 @@ export class Tile {
             const maxDistance = Math.max(this._$element.width(), this._$element.height()) / 2;
             const mouseDx = distanceX / maxDistance; // -1 to 1
             const mouseDy = distanceY / maxDistance;
-            const relativeDx = -.2 * mouseDx + 'px';
-            const relativeDy = -.2 * mouseDy + 'px';
+            const relativeDx = -1 * mouseDx + 'px';
+            const relativeDy = -1 * mouseDy + 'px';
             this._element.style.setProperty('--pupilOffsetX', relativeDx);
             this._element.style.setProperty('--pupilOffsetY', relativeDy);
         });
