@@ -60,6 +60,17 @@ body {
     font-style: normal;
 }
 
+header,
+footer {
+    animation: fadeAway 10s linear 10s forwards;
+}
+
+@keyframes fadeAway {
+    to {
+        opacity: 0;
+    }
+}
+
 header {
     display: flex;
     justify-content: flex-end;
