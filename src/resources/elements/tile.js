@@ -12,19 +12,17 @@ export class Tile {
     }
 
     attached() {
-        this.tileObj.toBoard = true;
-        this.tileObj.onBoard = true;
-        this._pupilsOffsetSubscription = this._eventAggregator.subscribe('mouse-position', mousePos => {
-            if (!this.tileObj.onBoard) return;
+        this._pupilsOffsetSubscription = this._eventAggregator.subscribe('pointer-position', pointerPos => {
             const centerX = this._$element.offset().left + this._$element.width() / 2;
             const centerY = this._$element.offset().top + this._$element.height() / 2;
-            const distanceX = centerX - mousePos.x;
-            const distanceY = centerY - mousePos.y;
+            const distanceX = centerX - pointerPos.x;
+            const distanceY = centerY - pointerPos.y;
             const maxDistance = Math.max(this._$element.width(), this._$element.height()) / 2;
             const mouseDx = distanceX / maxDistance; // -1 to 1
             const mouseDy = distanceY / maxDistance;
-            const relativeDx = -1 * mouseDx + 'px';
-            const relativeDy = -1 * mouseDy + 'px';
+            const offsetFactor = -.5;
+            const relativeDx = offsetFactor * mouseDx + 'px';
+            const relativeDy = offsetFactor * mouseDy + 'px';
             this._element.style.setProperty('--pupilOffsetX', relativeDx);
             this._element.style.setProperty('--pupilOffsetY', relativeDy);
         });

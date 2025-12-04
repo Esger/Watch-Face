@@ -29,20 +29,16 @@ tile {
     opacity: var(--tileOpacity, 1);
 
     &::before,
-    &.face::after {
+    &::after {
         content: '';
         position: absolute;
-        width: 2%;
+        width: max(2%, .5vw);
         aspect-ratio: 1;
         top: calc(var(--pupilY) + var(--pupilOffsetY));
         left: calc(var(--pupilX) + var(--pupilOffsetX));
         border-radius: 1in;
         background-color: #fff;
         z-index: 1;
-
-        @media screen and (max-width: 600px) {
-            width: 2px;
-        }
     }
 
     &.face::after {
