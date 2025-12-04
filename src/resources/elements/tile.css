@@ -7,25 +7,14 @@ board {
 
 tile {
     --size: 31dvw;
-    --top: 0;
-    position: relative;
     --pupilOffsetX: 0%;
     --pupilOffsetY: 0%;
-    --pupilOffsetXRight: 0%;
     --pupilX: 38.6%;
     --pupilY: 38.3%;
-    --shadow: none;
+    position: relative;
     flex: 0 0 var(--size);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: transparent;
-    color: var(--color);
-    border-radius: var(--borderRadius, 2dvh);
-    border: solid;
-    border-width: var(--borderWidth, 0);
     aspect-ratio: 1;
-    box-shadow: var(--shadow);
     opacity: var(--tileOpacity, 1);
 
     &::before,
@@ -42,7 +31,7 @@ tile {
     }
 
     &.face::after {
-        --pupilX: calc(59.6% + var(--pupilOffsetXRight));
+        --pupilX: 59.6%;
         height: auto;
         mix-blend-mode: revert;
     }

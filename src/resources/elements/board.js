@@ -42,7 +42,7 @@ export class Board {
             }
             this._eventAggregator.publish('pointer-position', { x, y });
             this.positionThrottle = null;
-        }, 100);
+        }, 50);
     }
 
     _randomFeatureChange() {
@@ -63,12 +63,10 @@ export class Board {
     }
 
     _newTiles() {
-        // const features = ['left', 'center', 'right'];
         this.deck = [
-            { id: 0, chin: 'left', hair: 'left', nose: 'left', mouth: 'left', x: 0, y: 0 },
-            { id: 1, chin: 'center', hair: 'center', nose: 'center', mouth: 'center', x: 1, y: 0 },
-            { id: 2, chin: 'right', hair: 'right', nose: 'right', mouth: 'right', x: 2, y: 0 },
-            // { id: 3, chin: 'left', hair: 'center', nose: 'right', mouth: 'left', x: 3, y: 0 },
+            { id: 0, chin: 'left', hair: 'left', nose: 'left', mouth: 'left' },
+            { id: 1, chin: 'center', hair: 'center', nose: 'center', mouth: 'center' },
+            { id: 2, chin: 'right', hair: 'right', nose: 'right', mouth: 'right' },
         ];
     }
 
